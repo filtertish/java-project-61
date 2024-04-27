@@ -1,18 +1,18 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Randomizer;
+
 import java.util.Scanner;
 
 public class EvenGame {
     public static void startEvenGame(String userName) {
         Scanner scanner = new Scanner(System.in);
-        Random randomizer = new Random();
         int correctAnswers = 0;
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no");
         while (correctAnswers < 3) {
 
-            int quizNumber = randomizer.nextInt(2, 100);
+            int quizNumber = Randomizer.getRandomIntegerInRange(2, 100);
 
             System.out.println("Question: " + quizNumber);
 
