@@ -5,13 +5,20 @@ import hexlet.code.utils.Randomizer;
 import hexlet.code.utils.Validator;
 
 public class CalcGame {
+    public static final int MIN_OPERAND_NUMBER = 1;
+    public static final int MAX_OPERAND_NUMBER = 50;
+    public static final int OPERATOR_MIN_BOUND = 1;
+    public static final int OPERATOR_MAX_BOUND = 4;
+
     public static void startCalcGame(String userName) {
+
         int correctAnswers = 0;
 
         System.out.println("What is the result of the expression?");
 
         while (correctAnswers < Engine.getAnswersToWin()) {
-            int quizOperator = Randomizer.getRandomIntegerInRange(1, 4);
+            int quizOperator = Randomizer
+                    .getRandomIntegerInRange(OPERATOR_MIN_BOUND, OPERATOR_MAX_BOUND);
 
             int quizFirstOperand = calcOperand(quizOperator);
             int quizSecondOperand = calcOperand(quizOperator);
@@ -50,9 +57,9 @@ public class CalcGame {
     private static int calcOperand(int operator) {
         return operator < 3
                 ?
-                Randomizer.getRandomIntegerInRange(1, 50)
+                Randomizer.getRandomIntegerInRange(MIN_OPERAND_NUMBER, MAX_OPERAND_NUMBER)
                 :
-                Randomizer.getRandomIntegerInRange(2, 10);
+                Randomizer.getRandomIntegerInRange(MIN_OPERAND_NUMBER * 2, MAX_OPERAND_NUMBER / 5);
     }
 
     private static int calcResult(int operator, int firstOperand, int secondOperand) {

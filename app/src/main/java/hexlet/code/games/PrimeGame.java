@@ -6,6 +6,9 @@ import hexlet.code.utils.Randomizer;
 import java.util.Scanner;
 
 public class PrimeGame {
+    public static final int MIN_NUMBER_VALUE = 2;
+    public static final int MAX_NUMBER_VALUE = 100;
+
     public static void startPrimeGame(String userName) {
         Scanner scanner = new Scanner(System.in);
         int correctAnswers = 0;
@@ -13,7 +16,7 @@ public class PrimeGame {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         while (correctAnswers < Engine.getAnswersToWin()) {
-            int quizNumber = Randomizer.getRandomIntegerInRange(2, 100);
+            int quizNumber = Randomizer.getRandomIntegerInRange(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
 
             System.out.println("Question: " + quizNumber);
 
