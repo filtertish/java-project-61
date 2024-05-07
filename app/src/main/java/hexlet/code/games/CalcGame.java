@@ -25,6 +25,7 @@ public class CalcGame {
                     quizSecondOperand
             );
 
+            System.out.print("Your answer: ");
             int userAnswer = Validator.numberValidator();
             int correctAnswer = calcResult(quizOperator, quizFirstOperand, quizSecondOperand);
 

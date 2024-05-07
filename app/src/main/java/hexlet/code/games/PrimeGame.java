@@ -17,6 +17,7 @@ public class PrimeGame {
 
             System.out.println("Question: " + quizNumber);
 
+            System.out.print("Your answer: ");
             String userAnswer = scanner.next();
             String correctAnswer = isEven(quizNumber) ? "yes" : "no";
 

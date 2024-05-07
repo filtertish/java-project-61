@@ -33,6 +33,7 @@ public class ProgressionGame {
 
             System.out.println("Question: " + progression);
 
+            System.out.print("Your answer: ");
             int userAnswer = Validator.numberValidator();
 
             if (Engine.checkUserAnswerIncorrectness(userAnswer, progressionMissed)) {

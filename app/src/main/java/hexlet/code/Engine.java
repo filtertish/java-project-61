@@ -11,10 +11,12 @@ public class Engine {
     private static final int ANSWERS_TO_WIN = 3;
 
     public static void run() {
-        System.out.println("/Welcome to the Brain Games!/");
         showGames();
 
         int gameCode = Validator.numberValidator();
+
+        System.out.println();
+        System.out.println("Welcome to the Brain Games!");
 
         startGames(gameCode);
     }
@@ -75,7 +77,6 @@ public class Engine {
 
     public static void congratulateUser(String userName) {
         System.out.println("Congratulations, " + userName);
-        System.out.println("See you next time!");
     }
 
     public static int getAnswersToWin() {

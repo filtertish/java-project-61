@@ -23,6 +23,8 @@ public class GcdGame {
                     quizSecondNumber);
 
             int correctAnswer = gcd(quizFirstNumber, quizSecondNumber);
+
+            System.out.print("Your answer: ");
             int userAnswer = Validator.numberValidator();
 
             if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
