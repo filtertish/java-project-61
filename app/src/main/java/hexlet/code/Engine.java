@@ -39,6 +39,7 @@ public class Engine {
                 System.out.println("See you next time!");
                 break;
             case 1:
+                Cli.askName();
                 break;
             case 2:
                 EvenGame.startEvenGame(Cli.askName());
