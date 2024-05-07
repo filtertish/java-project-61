@@ -11,7 +11,7 @@ public class Engine {
     private static final int ANSWERS_TO_WIN = 3;
 
     public static void run() {
-        System.out.println("Welcome to the Brain Game!");
+        System.out.println("/Welcome to the Brain Game!/");
         showGames();
 
         int gameCode = Validator.numberValidator();
