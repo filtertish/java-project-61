@@ -15,9 +15,12 @@ public class CalcGame {
             int quizFirstOperand = calcOperand(quizOperator);
             int quizSecondOperand = calcOperand(quizOperator);
 
-            System.out.println("Question: " +
-                    quizFirstOperand +
-                    operatorToString(quizOperator) +
+            System.out.println("Question: "
+                    +
+                    quizFirstOperand
+                    +
+                    operatorToString(quizOperator)
+                    +
                     quizSecondOperand
             );
 
@@ -43,7 +46,8 @@ public class CalcGame {
     }
 
     private static int calcOperand(int operator) {
-        return operator < 3 ?
+        return operator < 3
+                ?
                 Randomizer.getRandomIntegerInRange(1, 50)
                 :
                 Randomizer.getRandomIntegerInRange(2, 10);
