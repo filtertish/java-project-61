@@ -29,7 +29,7 @@ public class CalcGame {
             int userAnswer = Validator.numberValidator();
             int correctAnswer = calcResult(quizOperator, quizFirstOperand, quizSecondOperand);
 
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
+            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer, userName)) {
                 return;
             }
 

@@ -21,7 +21,7 @@ public class EvenGame {
             String userAnswer = scanner.next();
             String correctAnswer = quizNumber % 2 == 0 ? "yes" : "no";
 
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
+            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer, userName)) {
                 return;
             }
 

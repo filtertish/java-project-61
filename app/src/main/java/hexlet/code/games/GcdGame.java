@@ -27,7 +27,7 @@ public class GcdGame {
             System.out.print("Your answer: ");
             int userAnswer = Validator.numberValidator();
 
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
+            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer, userName)) {
                 return;
             }
 

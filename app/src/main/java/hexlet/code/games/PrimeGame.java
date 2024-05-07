@@ -21,7 +21,7 @@ public class PrimeGame {
             String userAnswer = scanner.next();
             String correctAnswer = isEven(quizNumber) ? "yes" : "no";
 
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
+            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer, userName)) {
                 return;
             }
 
