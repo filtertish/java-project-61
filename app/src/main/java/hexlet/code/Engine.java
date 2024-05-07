@@ -8,32 +8,16 @@ import hexlet.code.games.ProgressionGame;
 import hexlet.code.utils.Validator;
 
 import java.util.Map;
+import java.util.Scanner;
 
 public class Engine {
     private static final int ANSWERS_TO_WIN = 3;
-    private static final Map<Integer, String> GAME_CODES;
-
-    static {
-        GAME_CODES = Map.of(0,
-                "EXIT",
-                1,
-                "GREET",
-                2,
-                "EVEN",
-                3,
-                "CALC",
-                4,
-                "GCD",
-                5,
-                "PROGRESSION",
-                6,
-                "PRIME");
-    }
 
     public static void run() {
         showGames();
 
-        int gameCode = Validator.numberValidator();
+        Scanner scanner = new Scanner(System.in);
+        String gameCode = scanner.next();
 
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
@@ -53,27 +37,27 @@ public class Engine {
         System.out.print("Your choice: ");
     }
 
-    private static void startGames(int gameCode) {
-        switch (GAME_CODES.get(gameCode)) {
-            case "EXIT":
+    private static void startGames(String gameCode) {
+        switch (gameCode) {
+            case "0":
                 System.out.println("See you next time!");
                 break;
-            case "GREET":
+            case "1":
                 Cli.askName();
                 break;
-            case "EVEN":
+            case "2":
                 EvenGame.startEvenGame(Cli.askName());
                 break;
-            case "CALC":
+            case "3":
                 CalcGame.startCalcGame(Cli.askName());
                 break;
-            case "GCD":
+            case "4":
                 GcdGame.startGcdGame(Cli.askName());
                 break;
-            case "PROGRESSION":
+            case "5":
                 ProgressionGame.startProgressionGame(Cli.askName());
                 break;
-            case "PRIME":
+            case "6":
                 PrimeGame.startPrimeGame(Cli.askName());
                 break;
             default:
