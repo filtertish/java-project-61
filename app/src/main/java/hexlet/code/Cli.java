@@ -6,9 +6,9 @@ public class Cli {
     public static String askName() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Tell me your name: ");
+        System.out.print("May I have your name?");
         String userName = scanner.next();
-        System.out.println("Nice to meet you, " + userName);
+        System.out.println("Hello, " + userName);
 
         return userName;
     }
