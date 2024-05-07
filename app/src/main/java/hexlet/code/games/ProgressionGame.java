@@ -10,7 +10,7 @@ public class ProgressionGame {
 
         System.out.println("What number is missing in the progression?");
 
-        while (correctAnswers < 3) {
+        while (correctAnswers < Engine.getAnswersToWin()) {
             int progressionLength = Randomizer.getRandomIntegerInRange(5, 11);
             int progressionStart = Randomizer.getRandomIntegerInRange(1, 100);
             int progressionStep = Randomizer.getRandomIntegerInRange(2, 10);

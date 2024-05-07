@@ -10,7 +10,7 @@ public class CalcGame {
 
         System.out.println("What is the result of the expression?");
 
-        while (correctAnswers < 3) {
+        while (correctAnswers < Engine.getAnswersToWin()) {
             int quizOperator = Randomizer.getRandomIntegerInRange(1, 4);
 
             int quizFirstOperand = calcOperand(quizOperator);

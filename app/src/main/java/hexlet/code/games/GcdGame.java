@@ -10,7 +10,7 @@ public class GcdGame {
 
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        while (correctAnswers < 3) {
+        while (correctAnswers < Engine.getAnswersToWin()) {
             int quizFirstNumber = Randomizer.getRandomIntegerInRange(4, 100);
             int quizSecondNumber = Randomizer.getRandomIntegerInRange(4, 100);
 

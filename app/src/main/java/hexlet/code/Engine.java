@@ -8,6 +8,8 @@ import hexlet.code.games.ProgressionGame;
 import hexlet.code.utils.Validator;
 
 public class Engine {
+    private static final int ANSWERS_TO_WIN = 3;
+
     public static void run() {
         showGames();
 
@@ -69,5 +71,9 @@ public class Engine {
     public static void congratulateUser(String userName) {
         System.out.println("Congratulations, " + userName);
         System.out.println("See you next time!");
+    }
+
+    public static int getAnswersToWin() {
+        return ANSWERS_TO_WIN;
     }
 }

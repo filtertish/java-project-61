@@ -12,7 +12,7 @@ public class EvenGame {
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no");
 
-        while (correctAnswers < 3) {
+        while (correctAnswers < Engine.getAnswersToWin()) {
             int quizNumber = Randomizer.getRandomIntegerInRange(2, 100);
 
             System.out.println("Question: " + quizNumber);
