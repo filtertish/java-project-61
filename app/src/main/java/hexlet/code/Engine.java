@@ -15,6 +15,7 @@ public class Engine {
 
         int gameCode = Validator.numberValidator();
 
+        System.out.println("Welcome to the Brain Game!");
         startGames(gameCode);
     }
 
