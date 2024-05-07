@@ -15,6 +15,22 @@ public class Engine {
 
         int gameCode = Validator.numberValidator();
 
+        startGames(gameCode);
+    }
+
+    private static void showGames() {
+        System.out.println("Please, enter the game number and press Enter.");
+        System.out.println("1 - Greet");
+        System.out.println("2- Even");
+        System.out.println("3 - Calc");
+        System.out.println("4 - Gcd");
+        System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
+        System.out.println("0 - Exit");
+        System.out.print("Your choice: ");
+    }
+
+    private static void startGames(int gameCode) {
         switch (gameCode) {
             case 0:
                 System.out.println("See you next time!");
@@ -41,18 +57,6 @@ public class Engine {
                 System.out.println("Game doesn't exist. Bye");
                 break;
         }
-    }
-
-    private static void showGames() {
-        System.out.println("Please, enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2- Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - Gcd");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
-        System.out.print("Your choice: ");
     }
 
     public static <T> boolean checkUserAnswerIncorrectness(T userAnswer, T correctAnswer) {
