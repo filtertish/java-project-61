@@ -11,17 +11,16 @@ public class Engine {
     private static final int ANSWERS_TO_WIN = 3;
 
     public static void run() {
+        System.out.println("Welcome to the Brain Game!");
         showGames();
 
         int gameCode = Validator.numberValidator();
 
-        System.out.println();
-        System.out.println("Welcome to the Brain Game!");
         startGames(gameCode);
     }
 
     private static void showGames() {
-        System.out.println("Please, enter the game number and press Enter.");
+        System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2- Even");
         System.out.println("3 - Calc");
