@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.Randomizer;
+import hexlet.code.Engine;
+import hexlet.code.utils.Randomizer;
 
 import java.util.Scanner;
 
@@ -19,19 +20,13 @@ public class EvenGame {
             String userAnswer = scanner.next();
             String correctAnswer = quizNumber % 2 == 0 ? "yes" : "no";
 
-            if (userAnswer.equals(correctAnswer)) {
-                correctAnswers += 1;
-                System.out.println("Correct!");
-            } else {
-                String outputMessage = "'" + userAnswer + "' is wrong answer ;(. ";
-                outputMessage += "Correct answer was '" + correctAnswer + "'";
-                System.out.println(outputMessage);
-                System.out.println("Let's try again!");
+            if (!Engine.checkUserAnswer(userAnswer, correctAnswer)) {
                 return;
             }
+
+            correctAnswers += 1;
         }
 
-        System.out.println("Congratulations, " + userName);
-        System.out.println("See you next time!");
+        Engine.congratulateUser(userName);
     }
 }
