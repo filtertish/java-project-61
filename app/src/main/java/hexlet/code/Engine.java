@@ -5,9 +5,7 @@ import hexlet.code.games.EvenGame;
 import hexlet.code.games.GcdGame;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
-import hexlet.code.utils.Validator;
 
-import java.util.Map;
 import java.util.Scanner;
 
 public class Engine {
