@@ -7,6 +7,8 @@ import hexlet.code.utils.Validator;
 public class CalcGame {
     public static final int MIN_OPERAND_NUMBER = 1;
     public static final int MAX_OPERAND_NUMBER = 50;
+    public static final int MIN_MULTIPLY_OPERAND_NUMBER = 2;
+    public static final int MAX_MULTIPLY_OPERAND_NUMBER = 10;
     public static final int OPERATOR_MIN_BOUND = 1;
     public static final int OPERATOR_MAX_BOUND = 4;
 
@@ -55,11 +57,13 @@ public class CalcGame {
     }
 
     private static int calcOperand(int operator) {
-        return operator < 3
+        return operator < OPERATOR_MAX_BOUND - 1
                 ?
-                Randomizer.getRandomIntegerInRange(MIN_OPERAND_NUMBER, MAX_OPERAND_NUMBER)
+                Randomizer
+                        .getRandomIntegerInRange(MIN_OPERAND_NUMBER, MAX_OPERAND_NUMBER)
                 :
-                Randomizer.getRandomIntegerInRange(MIN_OPERAND_NUMBER * 2, MAX_OPERAND_NUMBER / 5);
+                Randomizer
+                        .getRandomIntegerInRange(MIN_MULTIPLY_OPERAND_NUMBER, MAX_MULTIPLY_OPERAND_NUMBER);
     }
 
     private static int calcResult(int operator, int firstOperand, int secondOperand) {

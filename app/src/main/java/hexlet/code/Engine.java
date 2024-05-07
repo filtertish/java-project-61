@@ -7,8 +7,26 @@ import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 import hexlet.code.utils.Validator;
 
+import java.util.Map;
+
 public class Engine {
     private static final int ANSWERS_TO_WIN = 3;
+    private static final Map<Integer, String> GAME_CODES;
+
+    static {
+        GAME_CODES = Map.of(1,
+                "EXIT",
+                2,
+                "EVEN",
+                3,
+                "CALC",
+                4,
+                "GCD",
+                5,
+                "PROGRESSION",
+                6,
+                "PRIME");
+    }
 
     public static void run() {
         showGames();
@@ -34,26 +52,26 @@ public class Engine {
     }
 
     private static void startGames(int gameCode) {
-        switch (gameCode) {
-            case 0:
+        switch (GAME_CODES.get(gameCode)) {
+            case "EXIT":
                 System.out.println("See you next time!");
                 break;
-            case 1:
+            case "GREET":
                 Cli.askName();
                 break;
-            case 2:
+            case "EVEN":
                 EvenGame.startEvenGame(Cli.askName());
                 break;
-            case 3:
+            case "CALC":
                 CalcGame.startCalcGame(Cli.askName());
                 break;
-            case 4:
+            case "GCD":
                 GcdGame.startGcdGame(Cli.askName());
                 break;
-            case 5:
+            case "PROGRESSION":
                 ProgressionGame.startProgressionGame(Cli.askName());
                 break;
-            case 6:
+            case "PRIME":
                 PrimeGame.startPrimeGame(Cli.askName());
                 break;
             default:
