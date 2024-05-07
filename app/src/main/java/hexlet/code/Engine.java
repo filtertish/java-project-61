@@ -39,22 +39,22 @@ public class Engine {
                 System.out.println("See you next time!");
                 break;
             case 1:
-                Cli.askName(true);
+                Cli.askName();
                 break;
             case 2:
-                EvenGame.startEvenGame(Cli.askName(false));
+                EvenGame.startEvenGame(Cli.askName());
                 break;
             case 3:
-                CalcGame.startCalcGame(Cli.askName(false));
+                CalcGame.startCalcGame(Cli.askName());
                 break;
             case 4:
-                GcdGame.startGcdGame(Cli.askName(false));
+                GcdGame.startGcdGame(Cli.askName());
                 break;
             case 5:
-                ProgressionGame.startProgressionGame(Cli.askName(false));
+                ProgressionGame.startProgressionGame(Cli.askName());
                 break;
             case 6:
-                PrimeGame.startPrimeGame(Cli.askName(false));
+                PrimeGame.startPrimeGame(Cli.askName());
                 break;
             default:
                 System.out.println("Game doesn't exist. Bye");
