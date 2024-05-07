@@ -12,7 +12,7 @@ public class PrimeGame {
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        while (correctAnswers < 10) {
+        while (correctAnswers < 3) {
             int quizNumber = Randomizer.getRandomIntegerInRange(2, 100);
 
             System.out.println("Question: " + quizNumber);
