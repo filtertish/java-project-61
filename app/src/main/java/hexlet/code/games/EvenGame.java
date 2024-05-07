@@ -12,7 +12,6 @@ public class EvenGame {
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no");
         while (correctAnswers < 3) {
-
             int quizNumber = Randomizer.getRandomIntegerInRange(2, 100);
 
             System.out.println("Question: " + quizNumber);
@@ -20,7 +19,7 @@ public class EvenGame {
             String userAnswer = scanner.next();
             String correctAnswer = quizNumber % 2 == 0 ? "yes" : "no";
 
-            if (!Engine.checkUserAnswer(userAnswer, correctAnswer)) {
+            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
                 return;
             }
 
