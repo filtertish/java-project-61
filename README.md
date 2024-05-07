@@ -3,7 +3,8 @@
 
 Asciinema recordings:  
 [Even game example](https://asciinema.org/a/7HFXF6ViKtu8K7IyPty2ov2Cg)  
-[Calc game example](https://asciinema.org/a/IZTGQ9WidQxJxbdPkNp0F7aJf)
+[Calc game example](https://asciinema.org/a/IZTGQ9WidQxJxbdPkNp0F7aJf)  
+[Gcd game example](https://asciinema.org/a/QqM6Fr65wAwMLeEBinqZr1e1r)
 
 filtertish project
 
