@@ -14,8 +14,10 @@ public class Engine {
     private static final Map<Integer, String> GAME_CODES;
 
     static {
-        GAME_CODES = Map.of(1,
+        GAME_CODES = Map.of(0,
                 "EXIT",
+                1,
+                "GREET",
                 2,
                 "EVEN",
                 3,
