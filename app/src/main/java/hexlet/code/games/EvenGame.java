@@ -11,6 +11,7 @@ public class EvenGame {
         int correctAnswers = 0;
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no");
+
         while (correctAnswers < 3) {
             int quizNumber = Randomizer.getRandomIntegerInRange(2, 100);
 

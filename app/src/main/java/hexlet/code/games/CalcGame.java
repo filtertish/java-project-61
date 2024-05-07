@@ -9,6 +9,7 @@ public class CalcGame {
         int correctAnswers = 0;
 
         System.out.println("What is the result of the expression?");
+
         while (correctAnswers < 3) {
             int quizOperator = Randomizer.getRandomIntegerInRange(1, 4);
 
@@ -25,9 +26,9 @@ public class CalcGame {
             );
 
             int userAnswer = Validator.numberValidator();
-            int quizResult = calcResult(quizOperator, quizFirstOperand, quizSecondOperand);
+            int correctAnswer = calcResult(quizOperator, quizFirstOperand, quizSecondOperand);
 
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, quizResult)) {
+            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer)) {
                 return;
             }
 
