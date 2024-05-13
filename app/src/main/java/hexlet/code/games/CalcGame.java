@@ -13,8 +13,8 @@ public class CalcGame {
 
     public static void startCalcGame(String userName) {
         String gameRules = "What is the result of the expression?";
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        String[] questions = new String[Engine.getAnswersToWin()];
+        String[] answers = new String[Engine.getAnswersToWin()];
 
         for (int i = 0; i < questions.length; i++) {
             int operator = Randomizer.getRandomIntegerInRange(OPERATOR_MIN_BOUND, OPERATOR_MAX_BOUND);

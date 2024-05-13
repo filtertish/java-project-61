@@ -9,8 +9,8 @@ public class PrimeGame {
 
     public static void startPrimeGame(String userName) {
         String gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        String[] questions = new String[Engine.getAnswersToWin()];
+        String[] answers = new String[Engine.getAnswersToWin()];
 
         for (int i = 0; i < questions.length; i++) {
             int question = Randomizer.getRandomIntegerInRange(MIN_NUMBER, MAX_NUMBER);

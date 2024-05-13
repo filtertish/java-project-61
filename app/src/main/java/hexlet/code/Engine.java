@@ -40,4 +40,8 @@ public class Engine {
     public static void congratulateUser(String userName) {
         System.out.println("Congratulations, " + userName + "!");
     }
+
+    public static int getAnswersToWin() {
+        return ANSWERS_TO_WIN;
+    }
 }

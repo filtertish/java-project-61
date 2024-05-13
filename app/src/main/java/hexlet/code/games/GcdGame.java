@@ -9,8 +9,8 @@ public class GcdGame {
 
     public static void startGcdGame(String userName) {
         String gameRules = "Find the greatest common divisor of given numbers.";
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        String[] questions = new String[Engine.getAnswersToWin()];
+        String[] answers = new String[Engine.getAnswersToWin()];
 
         for (int i = 0; i < questions.length; i++) {
             int firstNumber = Randomizer.getRandomIntegerInRange(MIN_NUMBER, MAX_NUMBER);

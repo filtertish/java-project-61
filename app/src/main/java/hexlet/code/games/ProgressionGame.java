@@ -13,8 +13,8 @@ public class ProgressionGame {
 
     public static void startProgressionGame(String userName) {
         String gameRules = "What number is missing in the progression?";
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        String[] questions = new String[Engine.getAnswersToWin()];
+        String[] answers = new String[Engine.getAnswersToWin()];
 
         for (int i = 0; i < questions.length; i++) {
             int progressionLength = Randomizer.getRandomIntegerInRange(
