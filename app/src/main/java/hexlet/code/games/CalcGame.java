@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.utils.Randomizer;
-import hexlet.code.utils.Validator;
 
 public class CalcGame {
     public static final int MIN_OPERAND_NUMBER = 1;
@@ -13,39 +12,20 @@ public class CalcGame {
     public static final int OPERATOR_MAX_BOUND = 4;
 
     public static void startCalcGame(String userName) {
+        String gameRules = "What is the result of the expression?";
+        String[] questions = new String[3];
+        String[] answers = new String[3];
 
-        int correctAnswers = 0;
+        for (int i = 0; i < questions.length; i++) {
+            int operator = Randomizer.getRandomIntegerInRange(OPERATOR_MIN_BOUND, OPERATOR_MAX_BOUND);
+            int firstOperand = calcOperand(operator);
+            int secondOperand = calcOperand(operator);
 
-        System.out.println("What is the result of the expression?");
-
-        while (correctAnswers < Engine.getAnswersToWin()) {
-            int quizOperator = Randomizer
-                    .getRandomIntegerInRange(OPERATOR_MIN_BOUND, OPERATOR_MAX_BOUND);
-
-            int quizFirstOperand = calcOperand(quizOperator);
-            int quizSecondOperand = calcOperand(quizOperator);
-
-            System.out.println("Question: "
-                    +
-                    quizFirstOperand
-                    +
-                    operatorToString(quizOperator)
-                    +
-                    quizSecondOperand
-            );
-
-            System.out.print("Your answer: ");
-            int userAnswer = Validator.numberValidator();
-            int correctAnswer = calcResult(quizOperator, quizFirstOperand, quizSecondOperand);
-
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer, userName)) {
-                return;
-            }
-
-            correctAnswers += 1;
+            questions[i] = firstOperand + operatorToString(operator) + secondOperand;
+            answers[i] = "" + calcResult(operator, firstOperand, secondOperand);
         }
 
-        Engine.congratulateUser(userName);
+        Engine.runGame(userName, gameRules, questions, answers);
     }
 
     private static String operatorToString(int operator) {

@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.utils.Randomizer;
-import hexlet.code.utils.Validator;
 
 public class ProgressionGame {
     public static final int MIN_PROGRESSION_LENGTH_VALUE = 5;
@@ -13,47 +12,58 @@ public class ProgressionGame {
     public static final int MAX_PROGRESSION_STEP_VALUE = 10;
 
     public static void startProgressionGame(String userName) {
-        int correctAnswers = 0;
+        String gameRules = "What number is missing in the progression?";
+        String[] questions = new String[3];
+        String[] answers = new String[3];
 
-        System.out.println("What number is missing in the progression?");
+        for (int i = 0; i < questions.length; i++) {
+            int progressionLength = Randomizer.getRandomIntegerInRange(
+                    MIN_PROGRESSION_LENGTH_VALUE,
+                    MAX_PROGRESSION_LENGTH_VALUE
+            );
 
-        while (correctAnswers < Engine.getAnswersToWin()) {
-            int progressionLength = Randomizer
-                    .getRandomIntegerInRange(MIN_PROGRESSION_LENGTH_VALUE, MAX_PROGRESSION_LENGTH_VALUE);
-            int progressionStart = Randomizer
-                    .getRandomIntegerInRange(MIN_STARTING_VALUE, MAX_STARTING_VALUE);
-            int progressionStep = Randomizer
-                    .getRandomIntegerInRange(MIN_PROGRESSION_STEP_VALUE, MAX_PROGRESSION_STEP_VALUE);
-            int progressionMissedPosition = Randomizer
-                    .getRandomIntegerInRange(MIN_STARTING_VALUE, progressionLength);
-            int progressionMissed = 0;
+            int progressionMissed = Randomizer.getRandomIntegerInRange(
+                    0,
+                    progressionLength
+            );
 
-            StringBuilder progression = new StringBuilder();
+            int progressionStartingValue = Randomizer.getRandomIntegerInRange(
+                    MIN_STARTING_VALUE,
+                    MAX_STARTING_VALUE
+            );
 
-            for (int i = 1; i < progressionLength + 1; i++) {
-                if (i == progressionMissedPosition) {
-                    progressionMissed = progressionStart + progressionStep * i;
-                    progression.append("..");
-                    progression.append(" ");
-                    continue;
-                }
+            int progressionStep = Randomizer.getRandomIntegerInRange(
+                    MIN_PROGRESSION_STEP_VALUE,
+                    MAX_PROGRESSION_STEP_VALUE
+            );
 
-                progression.append(progressionStart + progressionStep * i);
-                progression.append(" ");
-            }
+            questions[i] = generateProgression(
+                    progressionLength,
+                    progressionStep,
+                    progressionStartingValue,
+                    progressionMissed
+            );
 
-            System.out.println("Question: " + progression);
-
-            System.out.print("Your answer: ");
-            int userAnswer = Validator.numberValidator();
-
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, progressionMissed, userName)) {
-                return;
-            }
-
-            correctAnswers += 1;
+            answers[i] = (progressionStartingValue + progressionStep * (progressionMissed)) + "";
         }
 
-        Engine.congratulateUser(userName);
+        Engine.runGame(userName, gameRules, questions, answers);
+    }
+
+    private static String generateProgression(int length, int step, int starting, int missing) {
+        var progression = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            if (i == missing) {
+                progression.append("..");
+                progression.append(" ");
+                continue;
+            }
+
+            progression.append(starting + step * i);
+            progression.append(" ");
+        }
+
+        return progression.toString();
     }
 }

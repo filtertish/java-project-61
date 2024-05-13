@@ -3,35 +3,22 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.utils.Randomizer;
 
-import java.util.Scanner;
-
 public class PrimeGame {
-    public static final int MIN_NUMBER_VALUE = 2;
-    public static final int MAX_NUMBER_VALUE = 100;
+    public static final int MIN_NUMBER = 2;
+    public static final int MAX_NUMBER = 100;
 
     public static void startPrimeGame(String userName) {
-        Scanner scanner = new Scanner(System.in);
-        int correctAnswers = 0;
+        String gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[] questions = new String[3];
+        String[] answers = new String[3];
 
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        while (correctAnswers < Engine.getAnswersToWin()) {
-            int quizNumber = Randomizer.getRandomIntegerInRange(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
-
-            System.out.println("Question: " + quizNumber);
-
-            System.out.print("Your answer: ");
-            String userAnswer = scanner.next();
-            String correctAnswer = isEven(quizNumber) ? "yes" : "no";
-
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, correctAnswer, userName)) {
-                return;
-            }
-
-            correctAnswers += 1;
+        for (int i = 0; i < questions.length; i++) {
+            int question = Randomizer.getRandomIntegerInRange(MIN_NUMBER, MAX_NUMBER);
+            questions[i] = "" + question;
+            answers[i] = isEven(question) ? "yes" : "no";
         }
 
-        Engine.congratulateUser(userName);
+        Engine.runGame(userName, gameRules, questions, answers);
     }
 
     private static boolean isEven(int number) {
