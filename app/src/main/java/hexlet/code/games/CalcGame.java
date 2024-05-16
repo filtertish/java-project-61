@@ -23,7 +23,7 @@ public class CalcGame {
             int firstOperand = calcOperand(operatorIndex);
             int secondOperand = calcOperand(operatorIndex);
 
-            questions[i] = firstOperand + OPERATORS[operatorIndex] + secondOperand;
+            questions[i] = firstOperand + " " + OPERATORS[operatorIndex] + " " + secondOperand;
             answers[i] = "" + calcResult(OPERATORS[operatorIndex], firstOperand, secondOperand);
         }
 
