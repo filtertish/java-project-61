@@ -13,8 +13,8 @@ public class ProgressionGame {
 
     public static void startProgressionGame(String userName) {
         String gameRules = "What number is missing in the progression?";
-        String[] questions = new String[Engine.getAnswersToWin()];
-        String[] answers = new String[Engine.getAnswersToWin()];
+        String[] questions = new String[Engine.ANSWERS_TO_WIN];
+        String[] answers = new String[Engine.ANSWERS_TO_WIN];
 
         for (int i = 0; i < questions.length; i++) {
             int progressionLength = Randomizer.getRandomIntegerInRange(
@@ -37,33 +37,43 @@ public class ProgressionGame {
                     MAX_PROGRESSION_STEP_VALUE
             );
 
-            questions[i] = generateProgression(
+            int[] progression = generateProgression(
                     progressionLength,
                     progressionStep,
-                    progressionStartingValue,
-                    progressionMissed
+                    progressionStartingValue
             );
 
-            answers[i] = (progressionStartingValue + progressionStep * (progressionMissed)) + "";
+            questions[i] = generateQuestion(progression, progressionMissed);
+            answers[i] = "" + progression[progressionMissed];
         }
 
         Engine.runGame(userName, gameRules, questions, answers);
     }
 
-    private static String generateProgression(int length, int step, int starting, int missing) {
-        var progression = new StringBuilder();
+    private static int[] generateProgression(int length, int step, int starting) {
+        var progression = new int[length];
 
         for (int i = 0; i < length; i++) {
+            progression[i] = starting + step * i;
+        }
+
+        return progression;
+    }
+
+    private static String generateQuestion(int[] progression, int missing) {
+        var question = new StringBuilder();
+
+        for (int i = 0; i < progression.length; i++) {
             if (i == missing) {
-                progression.append("..");
-                progression.append(" ");
+                question.append("..");
+                question.append(" ");
                 continue;
             }
 
-            progression.append(starting + step * i);
-            progression.append(" ");
+            question.append(progression[i]);
+            question.append(" ");
         }
 
-        return progression.toString();
+        return question.toString();
     }
 }

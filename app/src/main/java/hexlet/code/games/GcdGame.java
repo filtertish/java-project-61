@@ -4,13 +4,13 @@ import hexlet.code.Engine;
 import hexlet.code.utils.Randomizer;
 
 public class GcdGame {
-    public static final int MIN_NUMBER = 4;
-    public static final int MAX_NUMBER = 100;
+    private static final int MIN_NUMBER = 4;
+    private static final int MAX_NUMBER = 100;
 
     public static void startGcdGame(String userName) {
         String gameRules = "Find the greatest common divisor of given numbers.";
-        String[] questions = new String[Engine.getAnswersToWin()];
-        String[] answers = new String[Engine.getAnswersToWin()];
+        String[] questions = new String[Engine.ANSWERS_TO_WIN];
+        String[] answers = new String[Engine.ANSWERS_TO_WIN];
 
         for (int i = 0; i < questions.length; i++) {
             int firstNumber = Randomizer.getRandomIntegerInRange(MIN_NUMBER, MAX_NUMBER);
