@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int ANSWERS_TO_WIN = 3;
+    public static final int ANSWERS_TO_WIN = 3;
 
     public static void runGame(String userName, String gameRules, String[] question, String[] rightAnswers) {
         Scanner scanner = new Scanner(System.in);
@@ -16,32 +16,17 @@ public class Engine {
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
 
-            if (Engine.checkUserAnswerIncorrectness(userAnswer, rightAnswers[i], userName)) {
+            if (!userAnswer.equals(rightAnswers[i])) {
+                String outputMessage = "'" + userAnswer + "' is wrong answer ;(. ";
+                outputMessage += "Correct answer was '" + rightAnswers[i] + "'";
+                System.out.println(outputMessage);
+                System.out.println("Let's try again, " + userName + "!");
                 return;
             }
+
+            System.out.println("Correct!");
         }
 
-        congratulateUser(userName);
-    }
-
-    public static <T> boolean checkUserAnswerIncorrectness(T userAnswer, T correctAnswer, String userName) {
-        if (!userAnswer.equals(correctAnswer)) {
-            String outputMessage = "'" + userAnswer + "' is wrong answer ;(. ";
-            outputMessage += "Correct answer was '" + correctAnswer + "'";
-            System.out.println(outputMessage);
-            System.out.println("Let's try again, " + userName + "!");
-            return true;
-        }
-
-        System.out.println("Correct!");
-        return false;
-    }
-
-    public static void congratulateUser(String userName) {
         System.out.println("Congratulations, " + userName + "!");
-    }
-
-    public static int getAnswersToWin() {
-        return ANSWERS_TO_WIN;
     }
 }
