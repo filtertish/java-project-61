@@ -7,7 +7,7 @@ public class EvenGame {
     private static final int MIN_NUMBER = 2;
     private static final int MAX_NUMBER = 100;
 
-    public static void startEvenGame(String userName) {
+    public static void startEvenGame() {
         String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[] questions = new String[Engine.ANSWERS_TO_WIN];
         String[] answers = new String[Engine.ANSWERS_TO_WIN];
@@ -18,7 +18,7 @@ public class EvenGame {
             answers[i] = isEven(question) ? "yes" : "no";
         }
 
-        Engine.runGame(userName, gameRules, questions, answers);
+        Engine.runGame(gameRules, questions, answers);
     }
 
     private static boolean isEven(int number) {

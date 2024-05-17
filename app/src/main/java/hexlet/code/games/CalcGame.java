@@ -13,7 +13,7 @@ public class CalcGame {
 
     private static final String[] OPERATORS = new String[]{"+", "-", "*"};
 
-    public static void startCalcGame(String userName) {
+    public static void startCalcGame() {
         String gameRules = "What is the result of the expression?";
         String[] questions = new String[Engine.ANSWERS_TO_WIN];
         String[] answers = new String[Engine.ANSWERS_TO_WIN];
@@ -27,7 +27,7 @@ public class CalcGame {
             answers[i] = "" + calcResult(OPERATORS[operatorIndex], firstOperand, secondOperand);
         }
 
-        Engine.runGame(userName, gameRules, questions, answers);
+        Engine.runGame(gameRules, questions, answers);
     }
 
     private static int calcOperand(int operator) {

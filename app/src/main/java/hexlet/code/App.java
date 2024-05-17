@@ -29,40 +29,15 @@ public class App {
         System.out.println("Welcome to the Brain Games!");
 
         switch (gameCode) {
-            case "0":
-                System.out.println("See you next time!");
-                break;
-            case "1":
-                askName();
-                break;
-            case "2":
-                EvenGame.startEvenGame(askName());
-                break;
-            case "3":
-                CalcGame.startCalcGame(askName());
-                break;
-            case "4":
-                GcdGame.startGcdGame(askName());
-                break;
-            case "5":
-                ProgressionGame.startProgressionGame(askName());
-                break;
-            case "6":
-                PrimeGame.startPrimeGame(askName());
-                break;
-            default:
-                System.out.println("Game doesn't exist. Bye");
-                break;
+            case "0" -> System.out.println("See you next time!");
+            case "1" -> Cli.askName();
+            case "2" -> EvenGame.startEvenGame();
+            case "3" -> CalcGame.startCalcGame();
+            case "4" -> GcdGame.startGcdGame();
+            case "5" -> ProgressionGame.startProgressionGame();
+            case "6" -> PrimeGame.startPrimeGame();
+            default -> System.out.println("Game doesn't exist. Bye");
         }
     }
 
-    public static String askName() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName +  "!");
-
-        return userName;
-    }
 }
