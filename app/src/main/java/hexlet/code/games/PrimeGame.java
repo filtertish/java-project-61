@@ -8,7 +8,6 @@ public class PrimeGame {
     private static final int MAX_NUMBER = 100;
 
     public static void startPrimeGame() {
-        String gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] gameData = new String[Engine.ANSWERS_TO_WIN][2];
 
         for (int i = 0; i < gameData.length; i++) {
@@ -17,7 +16,7 @@ public class PrimeGame {
             gameData[i][1] = isPrime(question) ? "yes" : "no";
         }
 
-        Engine.runGame(gameRules, gameData);
+        Engine.runGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", gameData);
     }
 
     private static boolean isPrime(int number) {
@@ -25,16 +24,8 @@ public class PrimeGame {
             return false;
         }
 
-        if (number == 2 || number == 3) {
-            return true;
-        }
-
-        if (number % 2 == 0 || number % 3 == 0) {
-            return false;
-        }
-
-        for (int i = 5; i <= Math.sqrt(number); i += 6) {
-            if (number % i == 0 || number % (i + 2) == 0) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
                 return false;
             }
         }

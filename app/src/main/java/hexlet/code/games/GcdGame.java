@@ -8,7 +8,6 @@ public class GcdGame {
     private static final int MAX_NUMBER = 100;
 
     public static void startGcdGame() {
-        String gameRules = "Find the greatest common divisor of given numbers.";
         String[][] gameData = new String[Engine.ANSWERS_TO_WIN][2];
 
         for (int i = 0; i < gameData.length; i++) {
@@ -19,7 +18,7 @@ public class GcdGame {
             gameData[i][1] = "" + gcd(firstNumber, secondNumber);
         }
 
-        Engine.runGame(gameRules, gameData);
+        Engine.runGame("Find the greatest common divisor of given numbers.", gameData);
     }
 
     private static int gcd(int firstNumber, int secondNumber) {

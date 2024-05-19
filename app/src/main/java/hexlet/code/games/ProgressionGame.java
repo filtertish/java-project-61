@@ -12,7 +12,6 @@ public class ProgressionGame {
     public static final int MAX_PROGRESSION_STEP = 10;
 
     public static void startProgressionGame() {
-        String gameRules = "What number is missing in the progression?";
         String[][] gameData = new String[Engine.ANSWERS_TO_WIN][2];
 
         for (int i = 0; i < gameData.length; i++) {
@@ -31,7 +30,7 @@ public class ProgressionGame {
             gameData[i][1] = "" + progression[progressionMissed];
         }
 
-        Engine.runGame(gameRules, gameData);
+        Engine.runGame("What number is missing in the progression?", gameData);
     }
 
     private static int[] generateProgression(int length, int step, int starting) {

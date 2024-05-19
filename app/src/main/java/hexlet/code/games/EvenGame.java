@@ -8,7 +8,6 @@ public class EvenGame {
     private static final int MAX_NUMBER = 100;
 
     public static void startEvenGame() {
-        String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[][] gameData = new String[Engine.ANSWERS_TO_WIN][2];
 
         for (int i = 0; i < gameData.length; i++) {
@@ -17,7 +16,7 @@ public class EvenGame {
             gameData[i][1] = isEven(question) ? "yes" : "no";
         }
 
-        Engine.runGame(gameRules, gameData);
+        Engine.runGame("Answer 'yes' if the number is even, otherwise answer 'no'.", gameData);
     }
 
     private static boolean isEven(int number) {
