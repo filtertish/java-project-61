@@ -9,18 +9,17 @@ public class GcdGame {
 
     public static void startGcdGame() {
         String gameRules = "Find the greatest common divisor of given numbers.";
-        String[] questions = new String[Engine.ANSWERS_TO_WIN];
-        String[] answers = new String[Engine.ANSWERS_TO_WIN];
+        String[][] gameData = new String[Engine.ANSWERS_TO_WIN][2];
 
-        for (int i = 0; i < questions.length; i++) {
-            int firstNumber = Randomizer.getRandomIntegerInRange(MIN_NUMBER, MAX_NUMBER);
-            int secondNumber = Randomizer.getRandomIntegerInRange(MIN_NUMBER, MAX_NUMBER);
+        for (int i = 0; i < gameData.length; i++) {
+            int firstNumber = Randomizer.nextInt(MIN_NUMBER, MAX_NUMBER);
+            int secondNumber = Randomizer.nextInt(MIN_NUMBER, MAX_NUMBER);
 
-            questions[i] = firstNumber + " " + secondNumber;
-            answers[i] = "" + gcd(firstNumber, secondNumber);
+            gameData[i][0] = firstNumber + " " + secondNumber;
+            gameData[i][1] = "" + gcd(firstNumber, secondNumber);
         }
 
-        Engine.runGame(gameRules, questions, answers);
+        Engine.runGame(gameRules, gameData);
     }
 
     private static int gcd(int firstNumber, int secondNumber) {

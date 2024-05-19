@@ -3,7 +3,7 @@ package hexlet.code.utils;
 import java.util.Random;
 
 public class Randomizer {
-    public static int getRandomIntegerInRange(int min, int max) {
+    public static int nextInt(int min, int max) {
         if (min == max) {
             return min;
         }

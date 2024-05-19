@@ -15,29 +15,28 @@ public class CalcGame {
 
     public static void startCalcGame() {
         String gameRules = "What is the result of the expression?";
-        String[] questions = new String[Engine.ANSWERS_TO_WIN];
-        String[] answers = new String[Engine.ANSWERS_TO_WIN];
+        String[][] gameData = new String[Engine.ANSWERS_TO_WIN][2];
 
-        for (int i = 0; i < questions.length; i++) {
-            int operatorIndex = Randomizer.getRandomIntegerInRange(OPERATOR_MIN_BOUND, OPERATOR_MAX_BOUND);
+        for (int i = 0; i < gameData.length; i++) {
+            int operatorIndex = Randomizer.nextInt(OPERATOR_MIN_BOUND, OPERATOR_MAX_BOUND);
             int firstOperand = calcOperand(operatorIndex);
             int secondOperand = calcOperand(operatorIndex);
 
-            questions[i] = firstOperand + " " + OPERATORS[operatorIndex] + " " + secondOperand;
-            answers[i] = "" + calcResult(OPERATORS[operatorIndex], firstOperand, secondOperand);
+            gameData[i][0] = firstOperand + " " + OPERATORS[operatorIndex] + " " + secondOperand;
+            gameData[i][1] = "" + calcResult(OPERATORS[operatorIndex], firstOperand, secondOperand);
         }
 
-        Engine.runGame(gameRules, questions, answers);
+        Engine.runGame(gameRules, gameData);
     }
 
     private static int calcOperand(int operator) {
         return operator < OPERATOR_MAX_BOUND - 1
                 ?
                 Randomizer
-                        .getRandomIntegerInRange(MIN_OPERAND_NUMBER, MAX_OPERAND_NUMBER)
+                        .nextInt(MIN_OPERAND_NUMBER, MAX_OPERAND_NUMBER)
                 :
                 Randomizer
-                        .getRandomIntegerInRange(MIN_MULTIPLY_OPERAND_NUMBER, MAX_MULTIPLY_OPERAND_NUMBER);
+                        .nextInt(MIN_MULTIPLY_OPERAND_NUMBER, MAX_MULTIPLY_OPERAND_NUMBER);
     }
 
     private static int calcResult(String operator, int firstOperand, int secondOperand) {
