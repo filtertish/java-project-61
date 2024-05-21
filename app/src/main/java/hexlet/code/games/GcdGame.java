@@ -15,16 +15,17 @@ public class GcdGame {
             int secondNumber = Randomizer.nextInt(MIN_NUMBER, MAX_NUMBER);
 
             gameData[i][0] = firstNumber + " " + secondNumber;
-            gameData[i][1] = "" + gcd(firstNumber, secondNumber);
+            gameData[i][1] = "" + getGCD(firstNumber, secondNumber);
         }
 
         Engine.runGame("Find the greatest common divisor of given numbers.", gameData);
     }
 
-    private static int gcd(int firstNumber, int secondNumber) {
+    private static int getGCD(int firstNumber, int secondNumber) {
         if (secondNumber == 0) {
             return firstNumber;
         }
-        return gcd(secondNumber, firstNumber % secondNumber);
+
+        return getGCD(secondNumber, firstNumber % secondNumber);
     }
 }

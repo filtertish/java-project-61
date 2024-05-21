@@ -20,11 +20,7 @@ public class ProgressionGame {
             int progressionStartingValue = Randomizer.nextInt(MIN_STARTING, MAX_STARTING);
             int progressionStep = Randomizer.nextInt(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
 
-            int[] progression = generateProgression(
-                    progressionLength,
-                    progressionStep,
-                    progressionStartingValue
-            );
+            int[] progression = generateProgression(progressionLength, progressionStep, progressionStartingValue);
 
             gameData[i][0] = generateQuestion(progression, progressionMissed);
             gameData[i][1] = "" + progression[progressionMissed];

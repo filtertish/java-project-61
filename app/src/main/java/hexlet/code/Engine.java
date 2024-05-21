@@ -19,9 +19,8 @@ public class Engine {
             String userAnswer = scanner.next();
 
             if (!userAnswer.equals(gameData[i][1])) {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. "
-                        + "Correct answer was '" + gameData[i][1] + "'\n"
-                        + "Let's try again, " + userName + "!");
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'\n"
+                        + "Let's try again, %s!%n", userAnswer, gameData[i][1], userName);
                 return;
             }
 
