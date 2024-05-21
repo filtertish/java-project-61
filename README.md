@@ -16,8 +16,6 @@
 
 ---
 
----
-
 ## Game examples:
 
 | Game             | Example                                           |
