@@ -11,8 +11,7 @@
 ### How to run games:
     git clone https://github.com/filtertish/java-project-61.git
     cd java-project-61/app/
-    ./gradlew installDist
-    make run-dist
+    make install-dist run-dist
 
 ---
 
